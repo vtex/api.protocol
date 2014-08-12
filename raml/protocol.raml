@@ -12,3 +12,18 @@ traits:
 /someResource:
   get:
     is: [ paged ]
+    responses:
+      206:
+        body:
+          application/vnd.vtex.myResource.v1+json:
+            example: |
+              [
+                {
+                  "someProperty": "property value",
+                  "otherProperty": 213
+                },
+                {
+                  "someProperty": "another property value",
+                  "otherProperty": 123
+                }
+              ]
