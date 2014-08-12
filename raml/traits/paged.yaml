@@ -1,0 +1,29 @@
+  - paged
+      usage: Atribuir a qualquer coleção que precise de paginação.
+      description: Algumas coleções precisam de paginação no método GET.
+      headers:
+        X-VTEX-Range:
+          description: |
+            Descreve qual parte da coleção deseja-se recuperar nesta consulta.
+            O conteúdo desse cabeçalho deve seguir o formato "resources={from}-{to}".
+            O primeiro item da coleção é o item 0.
+          type: string
+          required: true
+          example: resources=0-49
+          responses:
+            200, 206:
+              headers:
+                X-VTEX-Accept-Ranges:
+                  description: |
+                    Informa qual tipo de range o recurso aceita.
+                    O único valor definido por esta especificação é "resources".
+                  type: string
+                  required: true
+                  example: resources
+                X-VTEX-Content-Ranges:
+                  description: |
+                    Informa qual a parte da coleção retornada nesse response.
+                    O conteúdo desse cabeçalho segue o formato "resources {from}-{to}/{total}"
+                  type: string
+                  required: false
+                  example: resources 0-49/157
