@@ -1,0 +1,14 @@
+#%RAML 0.8
+---
+title: VTEX API Protocol
+version: v0.1.0+beta
+protocols: [ HTTPS ]
+baseUri: https://api.vtexcommerce.com.br/{accountName}/protocol-example
+baseUriParameters:
+    accountName:
+        description: Identifica a conta do cliente VTEX.
+traits:
+  - paged: !include traits/paged.yaml
+/someResource:
+  get:
+    is: [ paged ]
