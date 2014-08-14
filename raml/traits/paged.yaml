@@ -1,7 +1,7 @@
 usage: Atribuir a qualquer coleção que precise de paginação.
 description: Algumas coleções precisam de paginação no método GET.
 headers:
-  X-VTEX-Range:
+  X-REST-Range:
     description: |
       Descreve qual parte da coleção deseja-se recuperar nesta consulta.
       O conteúdo desse cabeçalho deve seguir o formato "resources={from}-{to}".
@@ -12,17 +12,25 @@ headers:
 responses:
   206:
     headers:
-      X-VTEX-Accept-Ranges:
+      X-REST-Accept-Ranges:
         description: |
           Informa qual tipo de range o recurso aceita.
           O único valor definido por esta especificação é "resources".
         type: string
         required: true
         example: resources
-      X-VTEX-Content-Ranges:
+      X-REST-Content-Ranges:
         description: |
           Informa qual a parte da coleção retornada nesse response.
           O conteúdo desse cabeçalho segue o formato "resources {from}-{to}/{total}"
         type: string
         required: false
         example: resources 0-49/157
+      Vary:
+        description: |
+          É importante que o header _Vary_ esteja presente na resposta à requisição com _X-REST-Range_,
+          para garantir que o cache seja feito de maneira correta, uma vez que Ranges diferentes
+          determinam respostas diferentes.
+          Uma resposta a um Range PRECISA incluir o campo _X-REST-Range_ no header _Vary_.
+        required: true
+        example: Vary: X-REST-Range,Accept
