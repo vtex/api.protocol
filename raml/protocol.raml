@@ -9,7 +9,8 @@ baseUriParameters:
         description: Identifica a conta do cliente VTEX.
 traits:
   - paged: !include traits/paged.yaml
-/someResource:
+resourceTypes: !include resourceTypes/baseResourceTypes.yaml
+/myResources:
   get:
     is: [ paged ]
     responses:
@@ -27,3 +28,9 @@ traits:
                   "otherProperty": 123
                 }
               ]
+  /{resourceId}:
+    type: versioned
+    get:
+    put:
+    patch:
+    delete:

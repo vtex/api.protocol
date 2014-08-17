@@ -1,0 +1,81 @@
+- base:
+    get?:
+    post?:
+    put?:
+    patch?:
+    delete?:
+- entity:
+    type: base
+    get?:
+    put?:
+    patch?:
+    delete?:
+- versioned:
+    type: entity
+    get?:
+      headers:
+        Version:
+          description: |
+            O cliente da API utiliza esse cabeçalho para indicar a versão do documento que 
+            espera receber.
+          type: string
+          required: false
+      responses:
+        200:
+          headers:
+            Content-Version:
+              description: |
+                Indica a versão da entidade entregue pelo servidor.
+              type: string
+              required: true
+              example: |
+                Content-Version: 1A23EF
+            Content-Current-Version:
+              description: |
+                Indica a versão mais recente da entidade disponível no servidor.
+              type: string
+              required: true
+              example: |
+                Content-Current-Version: 21FFEC
+    put?:
+      responses:
+        200:
+          headers:
+            Content-Version:
+              description: |
+                Indica a versão da entidade entregue pelo servidor.
+              type: string
+              required: true
+              example: |
+                Content-Version: 21FFEC
+            Content-Current-Version:
+              description: |
+                Indica a versão mais recente da entidade disponível no servidor.
+              type: string
+              required: true
+              example: |
+                Content-Current-Version: 21FFEC
+    patch?:
+      responses:
+        200:
+          headers:
+            Content-Version:
+              description: |
+                Indica a versão da entidade entregue pelo servidor.
+              type: string
+              required: true
+              example: |
+                Content-Version: 21FFEC
+            Content-Current-Version:
+              description: |
+                Indica a versão mais recente da entidade disponível no servidor.
+              type: string
+              required: true
+              example: |
+                Content-Current-Version: 21FFEC
+    delete?:
+- collection:
+    type: base
+    get?:
+    post?:
+    patch?:
