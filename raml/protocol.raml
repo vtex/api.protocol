@@ -11,6 +11,7 @@ traits:
   - paged: !include traits/paged.yaml
 resourceTypes: !include resourceTypes/baseResourceTypes.yaml
 /myResources:
+  type: collectionOfVersioned
   get:
     is: [ paged ]
     responses:
@@ -28,6 +29,14 @@ resourceTypes: !include resourceTypes/baseResourceTypes.yaml
                   "otherProperty": 123
                 }
               ]
+  post:
+    body:
+      application/vnd.vtex.myResource.v1+json:
+        example: |
+          {
+            "someProperty": "property value",
+            "otherProperty": 213
+          }
   /{resourceId}:
     type: versioned
     get:

@@ -79,3 +79,26 @@
     get?:
     post?:
     patch?:
+- collectionOfVersioned:
+    type: collection
+    get?:
+    post?:
+      responses:
+        201:
+          headers:
+            Content-Version:
+              description: |
+                Indica a versão da entidade criada no servidor.
+              type: string
+              required: true
+              example: |
+                Content-Version: 21FFEC
+            Content-Current-Version:
+              description: |
+                Indica a versão mais recente da entidade disponível no servidor. Geralmene
+                traz a mesma versão trazida em _Content-Version_.
+              type: string
+              required: true
+              example: |
+                Content-Current-Version: 21FFEC
+    patch?:
