@@ -1,7 +1,7 @@
 usage: Atribuir a qualquer coleção que precise de paginação.
 description: Algumas coleções precisam de paginação no método GET.
 headers:
-  X-REST-Range:
+  REST-Range:
     description: |
       Descreve qual parte da coleção deseja-se recuperar nesta consulta.
       O conteúdo desse cabeçalho deve seguir o formato "resources={from}-{to}".
@@ -18,23 +18,23 @@ responses:
       **Example:**
       ```
       GET /users
-      X-REST-Range: resources=0-49
+      REST-Range: resources=0-49
 
 
       200 OK
-      X-REST-Accept-Ranges: resources
-      X-REST-Content-Range: resources 0-33/34
+      REST-Accept-Ranges: resources
+      REST-Content-Range: resources 0-33/34
       ```
     headers:
-      X-REST-Accept-Ranges:
+      REST-Accept-Ranges:
         description: |
           Informa qual tipo de range o recurso aceita.
           O único valor definido por esta especificação é "resources".
         type: string
         required: true
         example: |
-          X-REST-AcceptRanges: resources
-      X-REST-Content-Range:
+          REST-AcceptRanges: resources
+      REST-Content-Range:
         description: |
           Informa qual a parte da coleção retornada nesse response. No caso do status 200,
           ele sempre indicará que a parte é composta do primeiro ao último item, ou seja, 
@@ -43,42 +43,42 @@ responses:
         type: string
         required: true
         example: |
-          X-REST-Content-Range: resources 0-33/34
+          REST-Content-Range: resources 0-33/34
       Vary:
         description: |
-          É importante que o header _Vary_ esteja presente na resposta à requisição com _X-REST-Range_,
+          É importante que o header _Vary_ esteja presente na resposta à requisição com _REST-Range_,
           para garantir que o cache seja feito de maneira correta, uma vez que Ranges diferentes
           determinam respostas diferentes.  
-          Uma resposta a um Range PRECISA incluir o campo _X-REST-Range_ no header _Vary_.
+          Uma resposta a um Range PRECISA incluir o campo _REST-Range_ no header _Vary_.
         required: true
         example: |
-          Vary: X-REST-Range,Accept
+          Vary: REST-Range,Accept
   206:
     headers:
-      X-REST-Accept-Ranges:
+      REST-Accept-Ranges:
         description: |
           Informa qual tipo de range o recurso aceita.
           O único valor definido por esta especificação é "resources".
         type: string
         required: true
         example: resources
-      X-REST-Content-Range:
+      REST-Content-Range:
         description: |
           Informa qual a parte da coleção retornada nesse response.
           O conteúdo desse cabeçalho segue o formato "resources {from}-{to}/{total}"
         type: string
         required: true
         example: |
-          X-REST-Content-Range: resources 0-49/157
+          REST-Content-Range: resources 0-49/157
       Vary:
         description: |
-          É importante que o header _Vary_ esteja presente na resposta à requisição com _X-REST-Range_,
+          É importante que o header _Vary_ esteja presente na resposta à requisição com _REST-Range_,
           para garantir que o cache seja feito de maneira correta, uma vez que Ranges diferentes
           determinam respostas diferentes.
-          Uma resposta a um Range PRECISA incluir o campo _X-REST-Range_ no header _Vary_.
+          Uma resposta a um Range PRECISA incluir o campo _REST-Range_ no header _Vary_.
         required: true
         example: |
-          Vary: X-REST-Range,Accept
+          Vary: REST-Range,Accept
   416:
     description: |
       Este código é retornado quando o incício da faixa solicitada está além do total de recursos
@@ -87,35 +87,35 @@ responses:
       **Example:**
       ```
       GET /users
-      X-REST-Range: resources=50-99
+      REST-Range: resources=50-99
 
 
       416 Requested Range Not Satisfiable
-      X-REST-Accept-Ranges: resources
-      X-REST-Content-Range: resources */34
+      REST-Accept-Ranges: resources
+      REST-Content-Range: resources */34
       ```
     headers:
-      X-REST-Accept-Ranges:
+      REST-Accept-Ranges:
         description: |
           Informa qual tipo de range o recurso aceita.
           O único valor definido por esta especificação é "resources".
         type: string
         required: true
         example: resources
-      X-REST-Content-Range:
+      REST-Content-Range:
         description: |
           Informa quantos itens estão disponíveis para consulta.
           O conteúdo desse cabeçalho segue o formato "resources */{total}"
         type: string
         required: true
         example: |
-          X-REST-Content-Range: resources */157
+          REST-Content-Range: resources */157
       Vary:
         description: |
-          É importante que o header _Vary_ esteja presente na resposta à requisição com _X-REST-Range_,
+          É importante que o header _Vary_ esteja presente na resposta à requisição com _REST-Range_,
           para garantir que o cache seja feito de maneira correta, uma vez que Ranges diferentes
           determinam respostas diferentes.
-          Uma resposta a um Range PRECISA incluir o campo _X-REST-Range_ no header _Vary_.
+          Uma resposta a um Range PRECISA incluir o campo _REST-Range_ no header _Vary_.
         required: true
         example: |
-          Vary: X-REST-Range,Accept
+          Vary: REST-Range,Accept
