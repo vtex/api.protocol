@@ -30,13 +30,13 @@
               required: true
               example: |
                 Content-Version: 1A23EF
-            Content-Current-Version:
+            Content-Latest-Version:
               description: |
                 Indica a versão mais recente da entidade disponível no servidor.
               type: string
               required: true
               example: |
-                Content-Current-Version: 21FFEC
+                Content-Latest-Version: 21FFEC
     put?:
       responses:
         200:
@@ -48,13 +48,14 @@
               required: true
               example: |
                 Content-Version: 21FFEC
-            Content-Current-Version:
+            Content-Latest-Version:
               description: |
-                Indica a versão mais recente da entidade disponível no servidor.
+                Indica a versão mais recente da entidade disponível no servidor. Geralmene
+                traz a mesma versão trazida em _Content-Version_.
               type: string
               required: true
               example: |
-                Content-Current-Version: 21FFEC
+                Content-Latest-Version: 21FFEC
     patch?:
       responses:
         200:
@@ -66,13 +67,13 @@
               required: true
               example: |
                 Content-Version: 21FFEC
-            Content-Current-Version:
+            Content-Latest-Version:
               description: |
                 Indica a versão mais recente da entidade disponível no servidor.
               type: string
               required: true
               example: |
-                Content-Current-Version: 21FFEC
+                Content-Latest-Version: 21FFEC
     delete?:
 - collection:
     type: base
@@ -93,12 +94,12 @@
               required: true
               example: |
                 Content-Version: 21FFEC
-            Content-Current-Version:
+            Content-Latest-Version:
               description: |
                 Indica a versão mais recente da entidade disponível no servidor. Geralmene
                 traz a mesma versão trazida em _Content-Version_.
               type: string
               required: true
               example: |
-                Content-Current-Version: 21FFEC
+                Content-Latest-Version: 21FFEC
     patch?:
