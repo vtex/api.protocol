@@ -14,6 +14,8 @@ resourceTypes: !include resourceTypes/baseResourceTypes.yaml
   type: collectionOfVersioned
   get:
     is: [ paged ]
+    description: |
+      Um exemplo de GET em uma coleção de recursos.
     responses:
       206:
         body:
@@ -30,6 +32,8 @@ resourceTypes: !include resourceTypes/baseResourceTypes.yaml
                 }
               ]
   post:
+    description: |
+      Use o POST para criar um novo recurso em uma coleção.
     body:
       application/vnd.vtex.myResource.v1+json:
         example: |
@@ -41,5 +45,10 @@ resourceTypes: !include resourceTypes/baseResourceTypes.yaml
     type: versioned
     get:
     put:
+      responses:
+        200:
+        201:
     patch:
     delete:
+      responses:
+        204:

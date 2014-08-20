@@ -1,9 +1,55 @@
+- rateLimited:
+    get?: &rateLimiting
+      responses:
+        429:
+          description: O limite de uso da API foi excedido.
+          headers: &rateLimitingHeaders
+            x-ratelimit-limit:
+              description: Informa o limite atual de uso dessa API.
+              type: integer
+            x-ratelimit-remaining:
+              description: |
+                Informa quantas chamadas ainda estão disponíveis até que o limite seja atingido.
+              type: integer
+            x-ratelimit-reset:
+              description: Informa em quantos segundos o contador de chamadas será reiniciado.
+              type: integer
+        400?:
+          headers: *rateLimitingHeaders
+    post?: *rateLimiting
+    put?: *rateLimiting
+    patch?: *rateLimiting
+    delete?: *rateLimiting
 - base:
+    type: rateLimited
     get?:
+      responses:
+        200:
+          headers: *rateLimitingHeaders
+        206?:
+          headers: *rateLimitingHeaders
+        416?:
+          headers: *rateLimitingHeaders
     post?:
+      responses:
+        201:
+          headers: *rateLimitingHeaders
     put?:
+      responses:
+        200?:
+          headers: *rateLimitingHeaders
+        201?:
+          headers: *rateLimitingHeaders
     patch?:
+      responses:
+        200:
+          headers: *rateLimitingHeaders
     delete?:
+      responses:
+        200?:
+          headers: *rateLimitingHeaders
+        204?:
+          headers: *rateLimitingHeaders
 - entity:
     type: base
     get?:
@@ -18,6 +64,8 @@
           description: |
             O cliente da API utiliza esse cabeçalho para indicar a versão do documento que 
             espera receber.
+            Este cabeçalho pode ser utilizado para consultar versões antigas de recursos versionados
+            que já tenham sido removidos da origem.
           type: string
           required: false
       responses:
@@ -75,6 +123,33 @@
               example: |
                 Content-Latest-Version: 21FFEC
     delete?:
+      responses:
+        200?:
+          headers:
+            Content-Version:
+              description: |
+                Indica a versão da entidade que foi apagada, nos casos em que ela é retornada
+                no response após o DELETE.
+              type: string
+              required: true
+              example: |
+                Content-Version: 21FFEC
+            Content-Latest-Version:
+              description: |
+                Indica a última versão da entidade que já esteve disponível no servidor.
+              type: string
+              required: true
+              example: |
+                Content-Latest-Version: 21FFEC
+        204?:
+          headers:
+            Content-Latest-Version:
+              description: |
+                Indica a última versão da entidade que já esteve disponível no servidor.
+              type: string
+              required: true
+              example: |
+                Content-Latest-Version: 21FFEC
 - collection:
     type: base
     get?:
