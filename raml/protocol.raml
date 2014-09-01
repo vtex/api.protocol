@@ -3,13 +3,13 @@
 title: VTEX API Protocol
 version: v0.3.0+beta
 protocols: [ HTTPS ]
-baseUri: https://api.vtexcommerce.com.br/{accountName}/protocol-example
+baseUri: https://api.vtex.com/{accountName}/protocol-example
 baseUriParameters:
     accountName:
         description: Identifica a conta do cliente VTEX.
 traits:
-  - paged: !include traits/paged.yaml
-resourceTypes: !include resourceTypes/baseResourceTypes.yaml
+  - paged: !include http://resources.vtex.com/pt-br/protocol/v1/traits/paged.yaml
+resourceTypes: !include http://resources.vtex.com/pt-br/protocol/v1/resourceTypes/baseResourceTypes.yaml
 /myResources:
   type: collectionOfVersioned
   get:
