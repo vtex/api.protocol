@@ -1,0 +1,10 @@
+[
+  {
+    "someProperty": "property value",
+    "otherProperty": 213
+  },
+  {
+    "someProperty": "another property value",
+    "otherProperty": 123
+  }
+]

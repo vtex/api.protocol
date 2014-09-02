@@ -20,27 +20,13 @@ resourceTypes: !include http://resources.vtex.com/pt-br/protocol/v1/resourceType
       206:
         body:
           application/vnd.vtex.myResource.v1+json:
-            example: |
-              [
-                {
-                  "someProperty": "property value",
-                  "otherProperty": 213
-                },
-                {
-                  "someProperty": "another property value",
-                  "otherProperty": 123
-                }
-              ]
+            example: !include examples/myResourceCollection.example.json
   post:
     description: |
       Use o POST para criar um novo recurso em uma coleção.
     body:
       application/vnd.vtex.myResource.v1+json:
-        example: |
-          {
-            "someProperty": "property value",
-            "otherProperty": 213
-          }
+        example: !include examples/myResource.example.json
   /{resourceId}:
     type: versioned
     get:
