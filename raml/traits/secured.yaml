@@ -1,0 +1,10 @@
+usage: Atribuir a qualquer API que precise de controle de acesso.
+description: |
+  Algumas APIs precisam de controle de acesso. Esse trait pode ser aplicada na raiz da API ou 
+  a algum recurso específico.
+headers:
+  Authorization:
+    description: O header Authorization deve conter o Bearer token OAuth 2.
+    type: string
+    required: true
+    example: Bearer AbCdEf123456

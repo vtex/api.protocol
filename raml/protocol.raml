@@ -9,9 +9,11 @@ baseUriParameters:
         description: Identifica a conta do cliente VTEX.
 traits:
   - paged: !include http://resources.vtex.com/pt-br/protocol/v1/traits/paged.yaml
+  - secured: !include http://resources.vtex.com/pt-br/protocol/v1/traits/secured.yaml
 resourceTypes: !include http://resources.vtex.com/pt-br/protocol/v1/resourceTypes/baseResourceTypes.yaml
 /myResources:
   type: collectionOfVersioned
+  is: [ secured ]
   get:
     is: [ paged ]
     description: |
@@ -29,6 +31,7 @@ resourceTypes: !include http://resources.vtex.com/pt-br/protocol/v1/resourceType
         example: !include examples/myResource.example.json
   /{resourceId}:
     type: versioned
+    is: [ secured ]
     get:
     put:
       responses:
