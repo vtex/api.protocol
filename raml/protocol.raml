@@ -13,7 +13,6 @@ traits:
 resourceTypes: !include http://resources.vtex.com/pt-br/protocol/v1/resourceTypes/baseResourceTypes.yaml
 /myResources:
   type: collectionOfVersioned
-  is: [ secured ]
   get:
     is: [ paged ]
     description: |
@@ -24,6 +23,7 @@ resourceTypes: !include http://resources.vtex.com/pt-br/protocol/v1/resourceType
           application/vnd.vtex.myResource.v1+json:
             example: !include examples/myResourceCollection.example.json
   post:
+    is: [ secured ]
     description: |
       Use o POST para criar um novo recurso em uma coleção.
     body:
