@@ -1,0 +1,14 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"title": "RESTPointer",
+	"description": "Ponteiro para um recurso",
+	"type": "object",
+	"properties": {
+		"href": {
+			"description": "Referência ao recurso.",
+			"type": "string",
+			"format": "uri"
+		}
+	},
+	"required": [ "href" ]
+}
