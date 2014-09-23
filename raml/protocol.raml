@@ -8,9 +8,9 @@ baseUriParameters:
     accountName:
         description: Identifica a conta do cliente VTEX.
 traits:
-  - paged: !include http://resources.vtex.com/pt-br/protocol/v1/traits/paged.yaml
-  - secured: !include http://resources.vtex.com/pt-br/protocol/v1/traits/secured.yaml
-resourceTypes: !include http://resources.vtex.com/pt-br/protocol/v1/resourceTypes/baseResourceTypes.yaml
+  - paged: !include http://api.vtex.com/doc/{%culture}/resources/protocol/v1/traits/paged.yaml
+  - secured: !include http://api.vtex.com/doc/{%culture}/resources/protocol/v1/traits/secured.yaml
+resourceTypes: !include http://api.vtex.com/doc/{%culture}/resources/protocol/v1/resourceTypes/baseResourceTypes.yaml
 /myResources:
   type: collectionOfVersioned
   get:
