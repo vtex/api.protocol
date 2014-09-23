@@ -1,12 +1,12 @@
 <html>
 <head>
-  <link rel="stylesheet" href="/raml/styles/app.min.css" type="text/css" />
+  <link rel="stylesheet" href="/doc/raml/styles/app.min.css" type="text/css" />
 </head>
 <body ng-app="ramlConsoleApp" ng-cloak id="raml-console-unembedded">
   <div style="position:>relative; height: 100vh; overflow: auto;">
-      <raml-console with-root-documentation src="protocol.raml"></raml-console>
+      <raml-console with-root-documentation src="{%API}.raml"></raml-console>
   </div>  
-  <script src="/raml/scripts/vendor.min.js"></script>
-  <script src="/raml/scripts/app.min.js"></script>
+  <script src="/doc/raml/scripts/vendor.min.js"></script>
+  <script src="/doc/raml/scripts/app.min.js"></script>
 </body>
 </html>
