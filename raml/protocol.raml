@@ -11,6 +11,8 @@ traits:
   - paged: !include http://api.vtex.com/doc/{%culture}/resources/protocol/v1/traits/paged.yaml
   - secured: !include http://api.vtex.com/doc/{%culture}/resources/protocol/v1/traits/secured.yaml
 resourceTypes: !include http://api.vtex.com/doc/{%culture}/resources/protocol/v1/resourceTypes/baseResourceTypes.yaml
+documentation: !include documentation/user-documentation.yaml
+
 /myResources:
   type: collectionOfVersioned
   get:

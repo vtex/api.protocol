@@ -1,0 +1,1 @@
+El resumen de este documento está disponible en **varios** idiomas. 

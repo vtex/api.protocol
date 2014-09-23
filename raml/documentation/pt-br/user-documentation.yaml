@@ -1,2 +1,4 @@
 - title: Visão Geral
   content: !include overview.md
+- title: Outras Coisas
+  content: !include nonTranslated.md

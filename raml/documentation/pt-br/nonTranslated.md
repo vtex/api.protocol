@@ -1,0 +1,1 @@
+Há outras coisas que só estão disponíveis em português.

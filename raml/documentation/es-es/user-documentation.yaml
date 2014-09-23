@@ -1,4 +1,4 @@
-- title: Overview
+- title: Información General
   content: !include overview.md
-- title: Other Stuff
+- title: Otras Cosas
   content: !include nonTranslated.md
