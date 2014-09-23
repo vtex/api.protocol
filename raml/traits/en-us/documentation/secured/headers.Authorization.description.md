@@ -1,0 +1,1 @@
+Authorization header MUST contain OAuth 2 Bearer token.

@@ -1,0 +1,1 @@
+Retornado quando a requisição não pode ser atendida por devido a restrições de segurança

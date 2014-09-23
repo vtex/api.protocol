@@ -9,7 +9,7 @@ API="protocol"
 INPUTDIR="."
 
 # Output directory
-OUTPUTDIR="../raml-output"
+OUTPUTDIR="$INPUTDIR/../raml-output"
 
 if [[ "$1" == "all" ]]; then
 	#Verify if output dir exists. If it doesn't exist, it is created

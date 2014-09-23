@@ -1,0 +1,1 @@
+O header Authorization deve conter o Bearer token OAuth 2.

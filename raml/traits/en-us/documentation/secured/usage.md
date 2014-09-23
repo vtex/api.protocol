@@ -1,0 +1,1 @@
+Add this trait to any API that needs to control access to its assets.

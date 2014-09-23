@@ -1,0 +1,1 @@
+Algumas APIs precisam de controle de acesso. Esse trait pode ser aplicada na raiz da API ou a algum recurso específico.

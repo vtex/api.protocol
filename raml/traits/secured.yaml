@@ -1,37 +1,17 @@
-usage: Atribuir a qualquer API que precise de controle de acesso.
-description: |
-  Algumas APIs precisam de controle de acesso. Esse trait pode ser aplicada na raiz da API ou 
-  a algum recurso específico.
+usage: !include documentation/secured/usage.md
+description: !include documentation/secured/documentation.md
 headers:
   Authorization:
-    description: O header Authorization deve conter o Bearer token OAuth 2.
+    description: !include documentation/secured/headers.Authorization.description.md
     type: string
     required: true
     example: Bearer AbCdEf123456
 responses:
   401:
-    description: |
-      A requisição não incluía o header **Authorization** ou o token utilizado não possui as 
-      permissões suficientes para lhe dar acesso ao recurso solicitado.
+    description: !include documentation/secured/responses/401/description.md
     headers:
       WWW-Authenticate:
-        description: |
-          Retornado quando a requisição não pode ser atendida por devido a restrições de segurança
+        description: !include documentation/secured/responses/401/headers.WWW-Authenticate.description.md
         type: string
         required: true
-        example: |
-          Para uma requisição sem o header Authorization:  
-
-          Bearer realm="VtexID"  
-
-          Se o token não possuía as permissões necessárias para garantir o acesso:  
-
-          Bearer realm="VtexID",  
-                 error="invalid_scope",  
-                 error_description="The request requires other privileges than provided by the access token."  
-
-          Se o token enviado era inválido:  
-
-          Bearer realm="VtexID",  
-                 error="invalid_token",  
-                 error_description="The access token expired."  
+        example: !include documentation/secured/responses/401/headers.WWW-Authenticate.example.md
