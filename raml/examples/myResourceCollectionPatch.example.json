@@ -1,0 +1,20 @@
+[
+	{
+		"method": "DELETE",
+		"_self": { "href": "my-uri"}
+	},
+	{
+		"method": "POST",
+		"body": {
+			"someProperty": "property value",
+			"otherProperty": 213
+		}
+	},
+	{
+		"method": "PATCH",
+		"_self": { "href": "other-uri" },
+		"body": {
+			"someProperty": "new property value"
+		}
+	}
+]

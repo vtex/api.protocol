@@ -31,6 +31,13 @@ documentation: !include documentation/user-documentation.yaml
     body:
       application/vnd.vtex.myResource.v1+json:
         example: !include examples/myResource.example.json
+  patch:
+    is: [secured]
+    description: |
+      Atualiza vários itens da coleção em um só request.
+    body:
+      application/vnd.vtex.myresource.v1.collectionPatch+json:
+        example: !include examples/myResourceCollectionPatch.example.json
   /{resourceId}:
     type: versioned
     is: [ secured ]
